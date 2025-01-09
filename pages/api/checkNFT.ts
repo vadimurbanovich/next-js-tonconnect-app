@@ -20,11 +20,7 @@ export default async function handler(
   try {
     const hasNFT = await nftChecker.checkNFT(walletAddress);
 
-    if (hasNFT) {
-      return res.status(200).json({ hasNFT: true });
-    } else {
-      return res.status(200).json({ hasNFT: false });
-    }
+    return res.status(200).json({ hasNFT });
   } catch (error) {
     console.error("Error checking NFT:", error);
     return res.status(500).json({ message: "Internal server error" });
