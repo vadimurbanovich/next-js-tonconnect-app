@@ -59,20 +59,13 @@ class NFTChecker {
           }
         `;
 
-        console.log(`Sending GraphQL query (Page ${currentPage + 1}):`, query);
-
         const response: Response = await fetch(this.graphqlEndpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ query }),
         });
 
-        console.log(`GraphQL Response Status: ${response.status}`);
-
         if (!response.ok) {
-          console.error(
-            `HTTP Error: ${response.status} ${response.statusText}`
-          );
           return false;
         }
 
@@ -115,3 +108,4 @@ class NFTChecker {
 }
 
 export default NFTChecker;
+  
